@@ -11,16 +11,7 @@ export default function AuthPage({ setEmail, setToken }) {
   async function handleSignIn(e) {
     e.preventDefault();
 
-    // const {
-    //   data: {
-    //     access_token,
-    //     user: { email },
-    //   },
-    // }
     const user = await signIn(signInEmail, signInPassword);
-
-    // const user = getUser();
-    // console.log(user);
 
     setEmail(user.data.user.email);
     setToken(user.data.access_token);
@@ -29,14 +20,7 @@ export default function AuthPage({ setEmail, setToken }) {
   async function handleSignUp(e) {
     e.preventDefault();
 
-    // await signUp(signUpEmail, signUpPassword);
-
     const user = await signUp(signUpEmail, signUpPassword);
-    console.log(user);
-    // const {
-    //   access_token,
-    //   user: { email },
-    // } = getUser();
 
     setEmail(user.user.email);
     setToken(user.session.access_token);

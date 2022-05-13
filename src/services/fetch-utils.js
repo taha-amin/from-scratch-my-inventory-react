@@ -12,7 +12,7 @@ export async function signUp(email, password) {
 
 export async function signIn(email, password) {
   const response = await client.auth.signIn({ email, password });
-  console.log(response);
+
   return response;
 }
 
