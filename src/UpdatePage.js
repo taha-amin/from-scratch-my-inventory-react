@@ -9,7 +9,7 @@ export default function UpdatePage() {
     name: '',
     location: '',
     score: 0,
-    parking: true,
+    parking: '',
     review: '',
   });
 

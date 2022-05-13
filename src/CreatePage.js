@@ -9,7 +9,7 @@ export default function CreateRestaurant() {
     name: '',
     location: '',
     score: 0,
-    parking: true,
+    parking: '',
     review: '',
   });
 
@@ -61,7 +61,6 @@ export default function CreateRestaurant() {
         <label>
           Parking
           <input
-            type="radio"
             required
             value={restaurantInTheForm.parking}
             onChange={(e) =>
@@ -70,7 +69,6 @@ export default function CreateRestaurant() {
             name="parking"
           />
         </label>
-
         <label>
           Review
           <textarea
@@ -82,6 +80,7 @@ export default function CreateRestaurant() {
             name="review"
           />
         </label>
+        <button>Create Restaurant</button>
       </form>
     </div>
   );

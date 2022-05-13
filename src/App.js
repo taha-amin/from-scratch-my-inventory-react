@@ -35,7 +35,7 @@ export default function App() {
           {/* if there is a user in state, render out a link to the board games list, the create page, and add a button to let the user logout */}
           {token && (
             <>
-              <NavLink exact activeClassName="active-link" to="/board-games">
+              <NavLink exact activeClassName="active-link" to="/restaurants">
                 Restaurant List
               </NavLink>
               <NavLink exact activeClassName="active-link" to="/create">

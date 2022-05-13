@@ -7,7 +7,7 @@ export default function ListRestaurant() {
 
   useEffect(() => {
     async function fetch() {
-      const fetchedRestaurants = await getRestaurants;
+      const fetchedRestaurants = await getRestaurants();
 
       setRestaurants(fetchedRestaurants);
     }
@@ -17,8 +17,8 @@ export default function ListRestaurant() {
 
   return (
     <div className="list restaurants">
-      {restaurants.map((restaurant) => (
-        <Restaurant key={restaurant.id} restaurant={restaurant} />
+      {restaurants.map((restaurant, i) => (
+        <Restaurant key={restaurant.id + i} restaurant={restaurant} />
       ))}
     </div>
   );
