@@ -1,7 +1,7 @@
 import { Link } from 'react';
 
 export default function Restaurant({
-  restaurant: { name, location, yelp_score, parking, review },
+  restaurant: { id, name, location, yelp_score, parking, review },
 }) {
   return (
     <Link to={`/restaurants/${id}`}>
