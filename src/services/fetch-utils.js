@@ -28,7 +28,7 @@ export async function createRestaurant(restaurant) {
   return checkError(response);
 }
 
-export async function getRestaurant() {
+export async function getRestaurants() {
   const response = await client.from('restaurants').select();
 
   return checkError(response);
