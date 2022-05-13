@@ -1,6 +1,7 @@
-import { Link } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Restaurant({ restaurant: { id, name, location, score, parking, review } }) {
+export default function Restaurant({ restaurant }) {
+  const { id, name, location, score, parking, review } = restaurant;
   return (
     <Link to={`/restaurants/${id}`}>
       <div className="restaurant">

@@ -64,7 +64,7 @@ export default function CreateRestaurant() {
             required
             value={restaurantInTheForm.parking}
             onChange={(e) =>
-              setRestaurantInTheForm({ ...restaurantInTheForm, review: e.target.value })
+              setRestaurantInTheForm({ ...restaurantInTheForm, parking: e.target.value })
             }
             name="parking"
           />

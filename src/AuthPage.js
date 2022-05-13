@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signIn, signUp, getUser } from './services/fetch-utils';
+import { signIn, signUp } from './services/fetch-utils';
 
 export default function AuthPage({ setEmail, setToken }) {
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -11,29 +11,35 @@ export default function AuthPage({ setEmail, setToken }) {
   async function handleSignIn(e) {
     e.preventDefault();
 
-    await signIn(signInEmail, signInPassword);
+    // const {
+    //   data: {
+    //     access_token,
+    //     user: { email },
+    //   },
+    // }
+    const user = await signIn(signInEmail, signInPassword);
 
-    const {
-      access_token,
-      user: { email },
-    } = getUser;
+    // const user = getUser();
+    // console.log(user);
 
-    setEmail(email);
-    setToken(access_token);
+    setEmail(user.data.user.email);
+    setToken(user.data.access_token);
   }
 
   async function handleSignUp(e) {
     e.preventDefault();
 
-    await signUp(signUpEmail, signUpPassword);
+    // await signUp(signUpEmail, signUpPassword);
 
-    const {
-      access_token,
-      user: { email },
-    } = getUser();
+    const user = await signUp(signUpEmail, signUpPassword);
+    console.log(user);
+    // const {
+    //   access_token,
+    //   user: { email },
+    // } = getUser();
 
-    setEmail(email);
-    setToken(access_token);
+    setEmail(user.user.email);
+    setToken(user.session.access_token);
   }
 
   return (

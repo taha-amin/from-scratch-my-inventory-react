@@ -3,7 +3,7 @@ import { getRestaurantById, updateRestaurant } from './services/fetch-utils';
 import { useHistory, useParams } from 'react-router-dom';
 
 export default function UpdatePage() {
-  const { push } = useHistory();
+  const history = useHistory();
   const { id } = useParams();
   const [restaurantInTheForm, setRestaurantInTheForm] = useState({
     name: '',
@@ -27,7 +27,7 @@ export default function UpdatePage() {
 
     await updateRestaurant(id, restaurantInTheForm);
 
-    push('/restaurants');
+    history.push('/restaurants');
   }
 
   return (
@@ -70,11 +70,10 @@ export default function UpdatePage() {
         <label>
           Parking
           <input
-            type="radio"
             required
             value={restaurantInTheForm.parking}
             onChange={(e) =>
-              setRestaurantInTheForm({ ...restaurantInTheForm, review: e.target.value })
+              setRestaurantInTheForm({ ...restaurantInTheForm, parking: e.target.value })
             }
             name="parking"
           />
@@ -90,6 +89,7 @@ export default function UpdatePage() {
             name="review"
           />
         </label>
+        <button>Update Restaurant</button>
       </form>
     </div>
   );

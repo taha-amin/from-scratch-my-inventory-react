@@ -8,7 +8,6 @@ export default function ListRestaurant() {
   useEffect(() => {
     async function fetch() {
       const fetchedRestaurants = await getRestaurants();
-
       setRestaurants(fetchedRestaurants);
     }
 

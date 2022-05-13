@@ -9,16 +9,19 @@ import { logout } from './services/fetch-utils';
 import CreateRestaurant from './CreatePage';
 
 export default function App() {
-  const [email, setEmail] = useState();
-  const [token, setToken] = useState();
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState('');
 
   useEffect(() => {
-    const user = getUser();
+    async function loadUser() {
+      const user = await getUser();
 
-    if (user) {
-      setToken(user.access_token);
-      setEmail(user.user.email);
+      if (user) {
+        setToken(user.access_token);
+        setEmail(user.user.email);
+      }
     }
+    loadUser();
   }, []);
 
   async function handleLogout() {
